@@ -40,7 +40,7 @@ export function Navbar() {
 
   // Track active section in viewport
   useEffect(() => {
-    const ids = ["products", "ide", "about"];
+    const ids = ["products", "platform", "ide", "chain", "about", "affiliate", "faq"];
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
@@ -122,7 +122,7 @@ export function Navbar() {
             <nav
               aria-label={site.nav.aria}
               onMouseLeave={() => setHovered(null)}
-              className="hidden md:flex items-center gap-1 lg:gap-2"
+              className="hidden lg:flex items-center gap-0.5 xl:gap-1"
             >
               {site.nav.links.map((link) => {
                 const isActive = currentIndicator === link.href;
@@ -133,7 +133,7 @@ export function Navbar() {
                     onMouseEnter={() => setHovered(link.href)}
                     onFocus={() => setHovered(link.href)}
                     className={cn(
-                      "relative px-4 py-2 text-sm font-medium transition-colors duration-200",
+                      "relative px-3 py-1.5 text-xs xl:text-sm font-medium transition-colors duration-200",
                       isActive ? "text-ink" : "text-muted hover:text-ink",
                     )}
                   >
@@ -142,7 +142,7 @@ export function Navbar() {
                       <motion.span
                         layoutId="nav-underline"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                        className="pointer-events-none absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-linear-to-r from-teal-500 via-aqua-400 to-lime-400"
+                        className="pointer-events-none absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full bg-linear-to-r from-teal-500 via-aqua-400 to-lime-400"
                       />
                     )}
                   </a>
@@ -156,7 +156,7 @@ export function Navbar() {
                 type="button"
                 aria-label={site.nav.signInUnavailable}
                 onClick={triggerUnavailable}
-                className="hidden md:inline-flex items-center px-3.5 py-2 text-sm font-semibold text-ink/85 hover:text-teal-600 transition-colors cursor-pointer"
+                className="hidden lg:inline-flex items-center px-3 py-2 text-xs xl:text-sm font-semibold text-ink/85 hover:text-teal-600 transition-colors cursor-pointer"
               >
                 {site.nav.signIn}
               </button>
@@ -166,7 +166,7 @@ export function Navbar() {
                 arrow
                 aria-label={site.nav.signUpUnavailable}
                 onClick={triggerUnavailable}
-                className="hidden sm:inline-flex px-5 py-2.5 text-xs sm:text-sm"
+                className="hidden sm:inline-flex px-4 xl:px-5 py-2 xl:py-2.5 text-xs xl:text-sm"
               >
                 {site.nav.signUp}
               </MagneticButton>
@@ -179,7 +179,7 @@ export function Navbar() {
                 aria-controls="nimorai-mobile-navigation"
                 aria-expanded={mobileOpen}
                 onClick={() => setMobileOpen((prev) => !prev)}
-                className="inline-flex md:hidden size-10 items-center justify-center rounded-full border border-ink/10 bg-white/80 text-ink shadow-xs transition hover:bg-white cursor-pointer"
+                className="inline-flex lg:hidden size-10 items-center justify-center rounded-full border border-ink/10 bg-white/80 text-ink shadow-xs transition hover:bg-white cursor-pointer"
               >
                 <span className="relative block h-3.5 w-4">
                   <span
@@ -210,9 +210,9 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.28 }}
-            className="fixed inset-0 z-40 flex flex-col justify-between bg-mist/92 px-6 pt-28 pb-10 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-between bg-mist/95 px-6 pt-24 pb-8 backdrop-blur-2xl lg:hidden overflow-y-auto"
           >
-            <nav aria-label={site.nav.mobileAria} className="space-y-3">
+            <nav aria-label={site.nav.mobileAria} className="space-y-2.5">
               {site.nav.links.map((link, idx) => (
                 <motion.a
                   key={link.href}
@@ -220,11 +220,11 @@ export function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.05 * idx + 0.08 }}
-                  className="flex items-center justify-between rounded-2xl border border-white/80 bg-white/75 px-5 py-4 text-xl font-semibold text-ink shadow-glass"
+                  transition={{ delay: 0.04 * idx + 0.05 }}
+                  className="flex items-center justify-between rounded-xl border border-white/80 bg-white/75 px-4 py-3 text-base sm:text-lg font-semibold text-ink shadow-glass"
                 >
                   <span>{link.label}</span>
-                  <ArrowRight aria-hidden="true" className="size-5 text-teal-600" />
+                  <ArrowRight aria-hidden="true" className="size-4 text-teal-600" />
                 </motion.a>
               ))}
             </nav>
@@ -233,7 +233,7 @@ export function Navbar() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.24 }}
-              className="grid grid-cols-1 gap-3 sm:grid-cols-2"
+              className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 pt-6"
             >
               <MagneticButton
                 variant="secondary"
