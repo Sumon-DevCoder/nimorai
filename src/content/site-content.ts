@@ -8,7 +8,7 @@ export type ProductId = "token" | "nft" | "coin";
 
 export const site = {
   meta: {
-    title: "Build with NIMORAI",
+    title: "NIMORAI",
     description:
       "Explore NIMORAI tools for token, NFT and coin projects, plus a dedicated blockchain development IDE.",
   },
