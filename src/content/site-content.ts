@@ -26,8 +26,12 @@ export const site = {
     mobileAria: "Mobile navigation",
     links: [
       { label: "Products", href: "#products" },
+      { label: "Platform", href: "#platform" },
       { label: "IDE", href: "#ide" },
+      { label: "Chain", href: "#chain" },
       { label: "About", href: "#about" },
+      { label: "Affiliate", href: "#affiliate" },
+      { label: "FAQ", href: "#faq" },
     ],
     signIn: "Sign In",
     signUp: "Sign Up",

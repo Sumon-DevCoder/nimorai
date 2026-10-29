@@ -13,8 +13,8 @@ import { Tilt } from "@/components/ui/Tilt";
  */
 export function Team() {
   return (
-    <section className="pb-20 sm:pb-28 lg:pb-36 relative overflow-hidden">
-      <div className="container-x space-y-10 sm:space-y-12">
+    <section className="pb-10 sm:pb-14 lg:pb-16 relative overflow-hidden">
+      <div className="container-x space-y-8 sm:space-y-10">
         <Reveal>
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div className="space-y-3">
@@ -32,7 +32,7 @@ export function Team() {
         <Reveal
           stagger={0.14}
           staggerSelector="article"
-          className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8"
+          className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:gap-8"
         >
           {site.team.members.map((member) => (
             <Tilt key={member.name} max={4} className="group h-full">
@@ -43,7 +43,7 @@ export function Team() {
                     alt={`${site.team.altPrefix}${member.name}`}
                     width={member.width}
                     height={member.height}
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 50vw, 33vw"
                     className="h-full w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-105"
                   />
                   <div
@@ -52,16 +52,16 @@ export function Team() {
                   />
                 </div>
 
-                <div className="flex flex-1 flex-col justify-between bg-white/92 p-6 transition-transform duration-500 ease-out-expo group-hover:-translate-y-0.5">
+                <div className="flex flex-1 flex-col justify-between bg-white/92 p-3.5 sm:p-6 transition-transform duration-500 ease-out-expo group-hover:-translate-y-0.5">
                   <div>
-                    <strong className="block text-lg sm:text-xl font-bold tracking-[-0.02em] text-ink">
+                    <strong className="block text-sm sm:text-lg lg:text-xl font-bold tracking-[-0.02em] text-ink">
                       {member.name}
                     </strong>
-                    <span className="mt-0.5 block text-sm font-medium text-muted">
+                    <span className="mt-0.5 block text-xs sm:text-sm font-medium text-muted">
                       {member.role}
                     </span>
                   </div>
-                  <small className="mt-4 block text-xs font-semibold text-teal-700">
+                  <small className="mt-3 sm:mt-4 block text-[10px] sm:text-xs font-semibold text-teal-700">
                     {site.team.tag}
                   </small>
                 </div>

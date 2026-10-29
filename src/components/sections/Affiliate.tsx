@@ -63,11 +63,11 @@ export function Affiliate() {
           <GlassCard
             tone="lavender"
             spotlight
-            className="space-y-10 sm:space-y-12 p-6 sm:p-10 lg:p-14"
+            className="p-6 sm:p-10 lg:p-14"
           >
             {/* Top row: copy + 3D creator visual */}
-            <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
-              <div className="lg:col-span-5 space-y-6">
+            <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+              <div className="order-2 lg:order-1 lg:col-span-5 space-y-6">
                 <EyebrowBadge icon="affiliate">
                   {site.affiliate.eyebrow}
                 </EyebrowBadge>
@@ -92,7 +92,7 @@ export function Affiliate() {
               </div>
 
               {/* Right 3D creator/video/coupon visual with parallax */}
-              <div className="lg:col-span-7">
+              <div className="order-1 lg:order-2 lg:col-span-7">
                 <div
                   ref={artRef}
                   role="img"
@@ -118,15 +118,15 @@ export function Affiliate() {
                   <motion.div
                     aria-hidden="true"
                     style={enabled ? { x: couponX, y: couponY } : undefined}
-                    className="glass glass-border absolute right-4 bottom-4 sm:right-7 sm:bottom-6 z-20 w-52 sm:w-64 rotate-3 rounded-2xl bg-linear-to-br from-white/95 via-white/90 to-lime-300/65 p-4 sm:p-5 shadow-lift"
+                    className="glass glass-border absolute right-2 bottom-2 sm:right-7 sm:bottom-6 z-20 w-44 sm:w-64 rotate-3 rounded-xl sm:rounded-2xl bg-linear-to-br from-white/95 via-white/90 to-lime-300/65 p-3 sm:p-5 shadow-lift"
                   >
-                    <small className="block text-[10px] font-bold tracking-[0.16em] uppercase text-teal-700">
+                    <small className="block text-[9px] sm:text-[10px] font-bold tracking-[0.16em] uppercase text-teal-700">
                       {site.affiliate.coupon.label}
                     </small>
-                    <strong className="mt-1 block text-lg sm:text-xl font-bold tracking-[0.08em] text-ink">
+                    <strong className="mt-0.5 sm:mt-1 block text-base sm:text-xl font-bold tracking-[0.08em] text-ink">
                       {site.affiliate.coupon.code}
                     </strong>
-                    <span className="mt-0.5 block text-[11px] font-medium text-muted">
+                    <span className="mt-0.5 block text-[10px] sm:text-[11px] font-medium text-muted">
                       {site.affiliate.coupon.note}
                     </span>
                   </motion.div>
@@ -135,7 +135,7 @@ export function Affiliate() {
             </div>
 
             {/* Middle row: 4 step cards with animated connecting line */}
-            <div ref={stepsWrapRef} className="relative">
+            <div ref={stepsWrapRef} className="relative mt-7 sm:mt-9">
               {/* Connecting line (desktop) */}
               <div
                 aria-hidden="true"
@@ -150,23 +150,23 @@ export function Affiliate() {
               <Reveal
                 stagger={0.12}
                 staggerSelector="[data-affiliate-step]"
-                className="relative z-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5"
+                className="relative z-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-5"
               >
                 {site.affiliate.steps.map((step) => (
                   <div
                     key={step.number}
                     data-affiliate-step
-                    className="glass glass-border flex h-full flex-col justify-between rounded-card bg-white/88 p-6 transition-all duration-300 ease-out-expo hover:-translate-y-1.5 hover:shadow-lift"
+                    className="glass glass-border flex h-full flex-col justify-between rounded-card bg-white/88 p-3.5 sm:p-5 md:p-6 transition-all duration-300 ease-out-expo hover:-translate-y-1.5 hover:shadow-lift"
                   >
-                    <span className="inline-grid size-11 place-items-center rounded-2xl border border-ink/10 bg-white font-mono text-xs font-bold text-teal-700 shadow-xs">
+                    <span className="inline-grid size-8 sm:size-11 place-items-center rounded-xl sm:rounded-2xl border border-ink/10 bg-white font-mono text-[11px] sm:text-xs font-bold text-teal-700 shadow-xs">
                       {step.number}
                     </span>
 
-                    <div className="mt-6 space-y-2">
-                      <h3 className="text-base sm:text-lg font-bold tracking-[-0.015em] text-ink">
+                    <div className="mt-3 sm:mt-5 space-y-1 sm:space-y-2">
+                      <h3 className="text-xs sm:text-base lg:text-lg font-bold tracking-[-0.015em] text-ink leading-snug">
                         {step.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                      <p className="text-[11px] sm:text-xs md:text-sm text-muted leading-relaxed">
                         {step.description}
                       </p>
                     </div>
@@ -176,7 +176,7 @@ export function Affiliate() {
             </div>
 
             {/* Content support callout */}
-            <div className="border-l-2 border-aqua-500 pl-4 sm:pl-5 space-y-1">
+            <div className="border-l-2 border-aqua-500 pl-4 sm:pl-5 space-y-1 mt-6 sm:mt-7">
               <span className="block text-sm font-bold text-ink">
                 {site.affiliate.support.title}
               </span>

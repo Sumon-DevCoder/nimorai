@@ -15,17 +15,17 @@ const CHIP_POSITIONS: Record<
   { wrapper: string; float: string; factor: number }
 > = {
   token: {
-    wrapper: "top-[12%] left-[1%] sm:top-[16%] sm:left-[2%]",
+    wrapper: "top-[10%] left-0 sm:top-[16%] sm:left-[2%]",
     float: "animate-bob",
     factor: 18,
   },
   nft: {
-    wrapper: "top-[10%] right-[1%] sm:top-[12%] sm:right-[1%]",
+    wrapper: "top-[8%] right-0 sm:top-[12%] sm:right-[1%]",
     float: "animate-float [animation-delay:1.1s]",
     factor: -22,
   },
   coin: {
-    wrapper: "bottom-[13%] right-[2%] sm:bottom-[15%] sm:right-[3%]",
+    wrapper: "bottom-[12%] right-0 sm:bottom-[15%] sm:right-[3%]",
     float: "animate-bob [animation-delay:2.1s]",
     factor: 15,
   },
@@ -54,7 +54,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28"
+      className="relative overflow-hidden pt-24 pb-8 sm:pt-28 sm:pb-12 lg:pt-32 lg:pb-14"
     >
       {/* Background aurora blobs + faint grid */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
@@ -70,9 +70,9 @@ export function Hero() {
       </div>
 
       <div className="container-x">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
           {/* Left copy column */}
-          <div className="lg:col-span-6 xl:col-span-5 space-y-7">
+          <div className="order-2 lg:order-1 lg:col-span-7 xl:col-span-6 flex flex-col items-start gap-4 sm:gap-5">
             <div
               style={{ ["--d" as string]: "60ms" }}
               className="intro-fade"
@@ -80,53 +80,44 @@ export function Hero() {
               <EyebrowBadge>{site.hero.eyebrow}</EyebrowBadge>
             </div>
 
-            <h1 className="text-display text-ink">
-              {site.hero.headlineLines.map((line, lineIdx) => (
-                <span key={line} className="block">
-                  {line.split(" ").map((word, wordIdx) => (
-                    <span key={word} className="intro-mask mr-[0.22em]">
-                      <span
-                        style={{ ["--i" as string]: lineIdx * 2 + wordIdx }}
-                        className="intro-word"
-                      >
-                        {word}
-                      </span>
-                    </span>
-                  ))}
-                </span>
-              ))}
-              <span className="intro-mask block">
-                <span
-                  style={{ ["--i" as string]: 4 }}
-                  className="intro-word text-gradient"
-                >
-                  {site.hero.headlineAccent}
-                </span>
+            <h1 className="text-display text-ink tracking-tight">
+              {site.hero.headlineLines[0]} {site.hero.headlineLines[1]}{" "}
+              <span className="text-gradient inline-block">
+                {site.hero.headlineAccent}
               </span>
             </h1>
 
             <p
               style={{ ["--d" as string]: "420ms" }}
-              className="intro-fade text-lead max-w-xl text-muted"
+              className="intro-fade text-lead max-w-xl text-muted mt-1"
             >
               {site.hero.description}
             </p>
 
             <div
               style={{ ["--d" as string]: "540ms" }}
-              className="intro-fade flex flex-wrap items-center gap-3.5 pt-1"
+              className="intro-fade flex flex-row items-center gap-3 sm:gap-3.5 pt-2 w-full sm:w-auto"
             >
-              <MagneticButton href={site.hero.primary.href} variant="primary" arrow>
+              <MagneticButton
+                href={site.hero.primary.href}
+                variant="primary"
+                arrow
+                className="flex-1 sm:flex-initial text-xs sm:text-sm px-4 sm:px-6 py-3 sm:py-3.5 whitespace-nowrap"
+              >
                 {site.hero.primary.label}
               </MagneticButton>
-              <MagneticButton href={site.hero.secondary.href} variant="secondary">
+              <MagneticButton
+                href={site.hero.secondary.href}
+                variant="secondary"
+                className="flex-1 sm:flex-initial text-xs sm:text-sm px-4 sm:px-6 py-3 sm:py-3.5 whitespace-nowrap"
+              >
                 {site.hero.secondary.label}
               </MagneticButton>
             </div>
           </div>
 
           {/* Right 3D glass scene */}
-          <div className="lg:col-span-6 xl:col-span-7">
+          <div className="order-1 lg:order-2 lg:col-span-5 xl:col-span-6 flex justify-center lg:justify-end">
             <motion.div
               ref={sceneRef}
               role="img"
@@ -141,7 +132,7 @@ export function Hero() {
                     }
                   : undefined
               }
-              className="intro-scene relative mx-auto aspect-[1.08/1] w-full max-w-[680px] select-none"
+              className="intro-scene relative mx-auto aspect-[1.08/1] w-full max-w-[460px] select-none"
             >
               {/* Soft glass halo backdrop */}
               <div
@@ -223,15 +214,16 @@ export function Hero() {
                       pos.float,
                     )}
                   >
-                    <div className="glass glass-border flex items-center gap-3 rounded-2xl bg-white/88 px-3.5 py-2.5 sm:px-4 sm:py-3 shadow-glass backdrop-blur-xl transition-transform duration-300 hover:scale-105">
-                      <span className="grid size-9 sm:size-10 place-items-center rounded-xl border border-aqua-400/25 bg-linear-to-br from-aqua-100/90 to-white">
-                        <NimoraiIcon name={chip.kind} size={20} />
+                    <div className="glass glass-border flex items-center gap-2 sm:gap-3 rounded-xl sm:rounded-2xl bg-white/88 px-2.5 py-1.5 sm:px-4 sm:py-3 shadow-glass backdrop-blur-xl transition-transform duration-300 hover:scale-105">
+                      <span className="grid size-7 sm:size-10 place-items-center rounded-lg sm:rounded-xl border border-aqua-400/25 bg-linear-to-br from-aqua-100/90 to-white">
+                        <NimoraiIcon name={chip.kind} size={16} className="sm:hidden" />
+                        <NimoraiIcon name={chip.kind} size={20} className="hidden sm:block" />
                       </span>
                       <span className="pr-1">
-                        <strong className="block text-xs sm:text-sm font-semibold text-ink leading-tight">
+                        <strong className="block text-[11px] sm:text-sm font-semibold text-ink leading-tight">
                           {chip.label}
                         </strong>
-                        <small className="block text-[11px] sm:text-xs text-muted leading-tight mt-0.5">
+                        <small className="hidden xs:block text-[10px] sm:text-xs text-muted leading-tight mt-0.5">
                           {chip.detail}
                         </small>
                       </span>

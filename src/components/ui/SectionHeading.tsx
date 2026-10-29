@@ -43,7 +43,7 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn("max-w-2xl space-y-4", className)}>
+    <div className={cn("space-y-4", className)}>
       <span className="eyebrow inline-flex items-center gap-2 text-teal-700">
         {icon && <NimoraiIcon name={icon} size={15} />}
         <span>{eyebrow}</span>

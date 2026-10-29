@@ -85,7 +85,7 @@ export function IdeAccess() {
           >
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
               {/* Left copy column */}
-              <div className="lg:col-span-6 space-y-6">
+              <div className="order-2 lg:order-1 lg:col-span-6 space-y-6">
                 <EyebrowBadge>{site.ide.eyebrow}</EyebrowBadge>
 
                 <h2 className="text-h2 text-ink">{site.ide.title}</h2>
@@ -159,7 +159,7 @@ export function IdeAccess() {
               </div>
 
               {/* Right column: Dark navy IDE window + 3D glass blocks */}
-              <div className="lg:col-span-6">
+              <div className="order-1 lg:order-2 lg:col-span-6">
                 <Tilt max={5}>
                   <div
                     role="img"
@@ -229,17 +229,19 @@ export function IdeAccess() {
                     {/* Floating top-right IDE terminal tile */}
                     <div
                       aria-hidden="true"
-                      className="glass glass-border absolute top-[2%] right-0 z-30 grid size-16 sm:size-20 place-items-center rounded-3xl bg-linear-to-br from-white/90 to-aqua-200/75 shadow-lift animate-bob"
+                      className="glass glass-border absolute top-[2%] right-0 z-30 grid size-12 sm:size-20 place-items-center rounded-2xl sm:rounded-3xl bg-linear-to-br from-white/90 to-aqua-200/75 shadow-lift animate-bob"
                     >
-                      <NimoraiIcon name="ide" size={30} />
+                      <NimoraiIcon name="ide" size={20} className="sm:hidden" />
+                      <NimoraiIcon name="ide" size={30} className="hidden sm:block" />
                     </div>
 
                     {/* Floating bottom-left license shield tile */}
                     <div
                       aria-hidden="true"
-                      className="glass glass-border absolute bottom-[3%] left-0 z-30 grid size-14 sm:size-16 place-items-center rounded-2xl bg-linear-to-br from-white/92 to-lime-300/75 shadow-lift animate-bob [animation-delay:1.4s]"
+                      className="glass glass-border absolute bottom-[3%] left-0 z-30 grid size-10 sm:size-16 place-items-center rounded-xl sm:rounded-2xl bg-linear-to-br from-white/92 to-lime-300/75 shadow-lift animate-bob [animation-delay:1.4s]"
                     >
-                      <NimoraiIcon name="license" size={26} />
+                      <NimoraiIcon name="license" size={18} className="sm:hidden" />
+                      <NimoraiIcon name="license" size={26} className="hidden sm:block" />
                     </div>
                   </div>
                 </Tilt>
@@ -256,16 +258,16 @@ export function IdeAccess() {
                   exit={{ opacity: 0, height: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="mt-10 grid grid-cols-1 gap-3 border-t border-ink/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-2.5 sm:gap-3 border-t border-ink/10 pt-6 sm:pt-8 lg:grid-cols-4">
                     {site.ide.process.map((step, idx) => (
                       <div
                         key={step}
-                        className="glass glass-border flex items-center gap-3.5 rounded-2xl bg-white/80 p-4"
+                        className="glass glass-border flex items-center gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl bg-white/80 p-3 sm:p-4"
                       >
-                        <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-aqua-100 font-mono text-xs font-bold text-teal-700">
+                        <span className="grid size-7 sm:size-9 shrink-0 place-items-center rounded-lg sm:rounded-xl bg-aqua-100 font-mono text-[11px] sm:text-xs font-bold text-teal-700">
                           {String(idx + 1).padStart(2, "0")}
                         </span>
-                        <strong className="text-sm font-semibold text-ink">
+                        <strong className="text-xs sm:text-sm font-semibold text-ink leading-tight">
                           {step}
                         </strong>
                       </div>

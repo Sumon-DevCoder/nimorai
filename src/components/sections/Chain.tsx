@@ -26,7 +26,7 @@ export function Chain() {
           >
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
               {/* Left copy */}
-              <div className="lg:col-span-5 space-y-6">
+              <div className="order-2 lg:order-1 lg:col-span-5 space-y-6">
                 <EyebrowBadge icon="chain">{site.chain.eyebrow}</EyebrowBadge>
 
                 <h2 className="text-h2 text-ink">{site.chain.title}</h2>
@@ -52,7 +52,7 @@ export function Chain() {
               </div>
 
               {/* Right orbital ecosystem visualization */}
-              <div className="lg:col-span-7">
+              <div className="order-1 lg:order-2 lg:col-span-7">
                 <div
                   role="img"
                   aria-label={site.chain.aria}

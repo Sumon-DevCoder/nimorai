@@ -13,7 +13,7 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
  */
 export function FinalCta() {
   return (
-    <section className="pt-8 pb-16 sm:pb-24 relative overflow-hidden">
+    <section className="pt-2 pb-10 sm:pb-14 relative overflow-hidden">
       <div className="container-x">
         <Reveal>
           <div className="glass glass-border relative overflow-hidden rounded-card-lg bg-linear-to-r from-aqua-200/80 via-sky-100/75 to-lime-100/80 p-7 sm:p-12 lg:p-16 shadow-lift">
@@ -28,7 +28,7 @@ export function FinalCta() {
             />
 
             <div className="relative z-10 grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
-              <div className="lg:col-span-6 space-y-6">
+              <div className="order-2 lg:order-1 lg:col-span-6 space-y-6">
                 <EyebrowBadge>{site.cta.eyebrow}</EyebrowBadge>
 
                 <h2 className="text-h2 text-ink">{site.cta.title}</h2>
@@ -57,7 +57,7 @@ export function FinalCta() {
               {/* Right 3D glass closing visual */}
               <div
                 aria-hidden="true"
-                className="lg:col-span-6 relative aspect-[2.1/1] w-full overflow-hidden rounded-card"
+                className="order-1 lg:order-2 lg:col-span-6 relative aspect-[2.1/1] w-full overflow-hidden rounded-card"
               >
                 <Image
                   src="/assets/nimorai-art/closing-cta.png"

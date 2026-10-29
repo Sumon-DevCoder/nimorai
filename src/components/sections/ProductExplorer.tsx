@@ -83,7 +83,7 @@ export function ProductExplorer() {
             <div
               role="tablist"
               aria-label={site.products.tabsAria}
-              className="inline-grid w-full max-w-xl grid-cols-3 rounded-2xl border border-ink/8 bg-white/55 p-1.5 backdrop-blur-md"
+              className="grid w-full max-w-xl grid-cols-3 rounded-2xl border border-ink/8 bg-white/55 p-1 sm:p-1.5 backdrop-blur-md"
             >
               {items.map((tab, idx) => {
                 const selected = tab.id === activeId;
@@ -102,7 +102,7 @@ export function ProductExplorer() {
                     onClick={() => selectByIndex(idx)}
                     onKeyDown={(e) => handleKeyDown(e, idx)}
                     className={cn(
-                      "relative z-10 flex items-center justify-center gap-2.5 rounded-xl px-4 py-3 text-sm font-semibold transition-colors duration-200 cursor-pointer",
+                      "relative z-10 flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-xl px-2 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer",
                       selected ? "text-ink" : "text-muted hover:text-ink",
                     )}
                   >
@@ -113,7 +113,8 @@ export function ProductExplorer() {
                         className="pointer-events-none absolute inset-0 -z-10 rounded-xl border border-white bg-white shadow-[0_6px_20px_-6px_rgb(20_70_100/0.18)]"
                       />
                     )}
-                    <NimoraiIcon name={tab.id} size={18} />
+                    <NimoraiIcon name={tab.id} size={16} className="sm:hidden" />
+                    <NimoraiIcon name={tab.id} size={18} className="hidden sm:block" />
                     <span>{tab.label}</span>
                   </button>
                 );
@@ -129,7 +130,7 @@ export function ProductExplorer() {
               className="mt-8 lg:mt-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12"
             >
               {/* Left copy column */}
-              <div className="lg:col-span-6">
+              <div className="order-2 lg:order-1 lg:col-span-6">
                 <AnimatePresence mode="wait" custom={direction}>
                   <motion.div
                     key={current.id}
@@ -203,7 +204,7 @@ export function ProductExplorer() {
               </div>
 
               {/* Right 3D art showcase */}
-              <div className="lg:col-span-6">
+              <div className="order-1 lg:order-2 lg:col-span-6">
                 <Tilt max={5}>
                   <div
                     role="img"
@@ -246,7 +247,7 @@ export function ProductExplorer() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.18, duration: 0.45 }}
                       aria-hidden="true"
-                      className="glass glass-border absolute right-4 bottom-4 z-20 w-52 sm:w-60 rounded-2xl bg-white/92 p-4 shadow-glass"
+                      className="glass glass-border absolute right-2 bottom-2 sm:right-4 sm:bottom-4 z-20 w-44 sm:w-60 rounded-xl sm:rounded-2xl bg-white/92 p-3 sm:p-4 shadow-glass"
                     >
                       <span className="block text-[10px] font-bold tracking-[0.16em] uppercase text-teal-700">
                         {site.products.briefLabel}
